@@ -802,8 +802,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    使用示例
+  <a href="#pydispatcher_1" class="md-nav__link">
+    pydispatcher 使用示例
   </a>
   
 </li>
@@ -822,8 +822,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    使用示例
+  <a href="#blinker_1" class="md-nav__link">
+    blinker 使用示例
   </a>
   
 </li>
@@ -842,8 +842,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    使用示例
+  <a href="#aiosignal_1" class="md-nav__link">
+    aiosignal 使用示例
   </a>
   
 </li>
@@ -854,7 +854,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     实现自定义的异步信号
   </a>
   
@@ -862,14 +862,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     源代码
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     使用
   </a>
   
@@ -886,7 +886,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     实践
   </a>
   
@@ -1152,8 +1152,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    使用示例
+  <a href="#pydispatcher_1" class="md-nav__link">
+    pydispatcher 使用示例
   </a>
   
 </li>
@@ -1172,8 +1172,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    使用示例
+  <a href="#blinker_1" class="md-nav__link">
+    blinker 使用示例
   </a>
   
 </li>
@@ -1192,8 +1192,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    使用示例
+  <a href="#aiosignal_1" class="md-nav__link">
+    aiosignal 使用示例
   </a>
   
 </li>
@@ -1204,7 +1204,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     实现自定义的异步信号
   </a>
   
@@ -1212,14 +1212,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     源代码
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     使用
   </a>
   
@@ -1236,7 +1236,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     实践
   </a>
   
@@ -1271,7 +1271,7 @@
 <h2 id="_3">信号框架</h2>
 <h3 id="pydispatcher">pydispatcher</h3>
 <p><a href="http://pydispatcher.sourceforge.net/">pydispatcher</a>  提供多生产者-多消费者信号注册和路由基础设施，以在多个上下文中使用。</p>
-<h4 id="_4">使用示例</h4>
+<h4 id="pydispatcher_1">pydispatcher 使用示例</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydispatch</span> <span class="kn">import</span> <span class="n">dispatcher</span>
 
 <span class="n">start_process</span> <span class="o">=</span> <span class="s1">&#39;process&#39;</span>
@@ -1302,7 +1302,7 @@
 <h3 id="blinker">blinker</h3>
 <p><a href="https://pythonhosted.org/blinker/">blinker</a> 为Python对象提供快速和简单的对象和广播信号。其内部逻辑依然使用的是弱引用。使用起来和
 <a href="http://pydispatcher.sourceforge.net/">pydispatcher</a> 类似。</p>
-<h4 id="_5">使用示例</h4>
+<h4 id="blinker_1">blinker 使用示例</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">blinker</span> <span class="kn">import</span> <span class="n">Signal</span>
 
 
@@ -1340,7 +1340,7 @@
 <h3 id="aiosignal">aiosignal</h3>
 <p><a href="https://github.com/aio-libs/aiosignal">aiosignal</a> 是从 <a href="https://github.com/aio-libs/aiohttp">aiohttp</a> 中独立出来的异步信号框架。
 它和上述两个信号框架区别有：一，它是一个异步信号框架，可以订阅异步事件；二，在订阅事件时，属于强引用。</p>
-<h4 id="_6">使用示例</h4>
+<h4 id="aiosignal_1">aiosignal 使用示例</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
 
 <span class="kn">from</span> <span class="nn">aiosignal</span> <span class="kn">import</span> <span class="n">Signal</span>
@@ -1365,9 +1365,9 @@
 </code></pre></div>
 <p>在底层， <code>Signal</code> 是继承了 <code>MutableSequence</code> 类，使用 <code>Signal.append</code> 方法将订阅的事件保存在对象的属性中。
 当调用 <code>Signal.send</code> 方法时，会遍历订阅的事件列表，然后执行。</p>
-<h3 id="_7">实现自定义的异步信号</h3>
+<h3 id="_4">实现自定义的异步信号</h3>
 <p><a href="https://pypi.org/project/aio-pydispatch/">aio-pydispatch</a></p>
-<h4 id="_8">源代码</h4>
+<h4 id="_5">源代码</h4>
 <p><code>aio_signal.signal.py</code></p>
 <div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Asyncio pydispatch (Signal Manager)</span>
@@ -1597,7 +1597,7 @@
 </code></pre></div>
 <p>自定义的 <code>aio_signal</code> 支持订阅同步事件和异步事件。发布时支持同步发布和异步发布。异步发布支持触发同步事件和
 异步事件，同步发布只支持触发同步事件。</p>
-<h4 id="_9">使用</h4>
+<h4 id="_6">使用</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
 
 <span class="kn">from</span> <span class="nn">aio_signal</span> <span class="kn">import</span> <span class="n">Signal</span>
@@ -1621,7 +1621,7 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
-<h2 id="_10">实践</h2>
+<h2 id="_7">实践</h2>
 <p>在开发实践中，推荐使用带有弱引用的信号库。这样可以避免资源占用。</p>
 
               
