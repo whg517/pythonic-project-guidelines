@@ -11,6 +11,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://pyloong.github.io/pythonic-project-guidelines/datadevelop/quick_start/etl_develop/</loc>
+         <lastmod>2023-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pyloong.github.io/pythonic-project-guidelines/datadevelop/quick_start/initialization/</loc>
+         <lastmod>2023-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pyloong.github.io/pythonic-project-guidelines/datadevelop/quick_start/preparation/</loc>
+         <lastmod>2023-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pyloong.github.io/pythonic-project-guidelines/datadevelop/quick_start/release/</loc>
+         <lastmod>2023-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pyloong.github.io/pythonic-project-guidelines/datadevelop/quick_start/tests/</loc>
+         <lastmod>2023-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://pyloong.github.io/pythonic-project-guidelines/guidelines/advanced/configuration/</loc>
          <lastmod>2023-05-29</lastmod>
          <changefreq>daily</changefreq>
