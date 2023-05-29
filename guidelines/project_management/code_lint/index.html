@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pyloong.github.io/pythonic-project-guidelines/guidelines/project_management/code_lint/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.4.1">
     
     
       
@@ -1275,131 +1275,131 @@
 <h3 id="_4">使用</h3>
 <p>在实际使用过程中，可以将代码检测逻辑放在自动化工具中运行。将逻辑放在 <code>tox</code> 中，可以在本地开发时方便使用。在 CI 阶段只需要调用 tox 就可以了。</p>
 <h4 id="tox">tox</h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># tox (https://tox.readthedocs.io/) is a tool for running tests</span><span class="w"></span>
-<span class="c1"># in multiple virtualenvs. This configuration file will run the</span><span class="w"></span>
-<span class="c1"># test suite on all supported python versions. To use it, &quot;pip install tox&quot;</span><span class="w"></span>
-<span class="c1"># and then run &quot;tox&quot; from this directory.</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1"># tox (https://tox.readthedocs.io/) is a tool for running tests</span>
+<span class="c1"># in multiple virtualenvs. This configuration file will run the</span>
+<span class="c1"># test suite on all supported python versions. To use it, &quot;pip install tox&quot;</span>
+<span class="c1"># and then run &quot;tox&quot; from this directory.</span>
 
-<span class="k">[tox]</span><span class="w"></span>
-<span class="na">isolated_build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span><span class="w"></span>
-<span class="na">envlist</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">py{37,38,39,310}</span><span class="w"></span>
-<span class="w">    </span><span class="na">isort</span><span class="w"></span>
-<span class="w">    </span><span class="na">lint</span><span class="w"></span>
+<span class="k">[tox]</span>
+<span class="na">isolated_build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
+<span class="na">envlist</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">py{37,38,39,310}</span>
+<span class="w">    </span><span class="na">isort</span>
+<span class="w">    </span><span class="na">lint</span>
 
-<span class="k">[testenv]</span><span class="w"></span>
-<span class="na">deps</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">pipenv</span><span class="w"></span>
-<span class="na">usedevelop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
-<span class="na">commands</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">pipenv sync -d</span><span class="w"></span>
-<span class="w">    </span><span class="na">pytest --cov</span><span class="o">=</span><span class="s">src</span><span class="w"></span>
+<span class="k">[testenv]</span>
+<span class="na">deps</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">pipenv</span>
+<span class="na">usedevelop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">commands</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">pipenv sync -d</span>
+<span class="w">    </span><span class="na">pytest --cov</span><span class="o">=</span><span class="s">src</span>
 
-<span class="k">[testenv:isort]</span><span class="w"></span>
-<span class="na">deps</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">isort</span><span class="w"></span>
-<span class="na">commands</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">isort . --check-only --diff</span><span class="w"></span>
+<span class="k">[testenv:isort]</span>
+<span class="na">deps</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">isort</span>
+<span class="na">commands</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">isort . --check-only --diff</span>
 
-<span class="k">[testenv:lint]</span><span class="w"></span>
-<span class="na">deps</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">pipenv</span><span class="w"></span>
-<span class="na">changedir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{toxinidir}</span><span class="w"></span>
-<span class="na">commands</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">pipenv sync -d</span><span class="w"></span>
-<span class="w">    </span><span class="na">pylint src tests</span><span class="w"></span>
+<span class="k">[testenv:lint]</span>
+<span class="na">deps</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">pipenv</span>
+<span class="na">changedir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{toxinidir}</span>
+<span class="na">commands</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">pipenv sync -d</span>
+<span class="w">    </span><span class="na">pylint src tests</span>
 </code></pre></div>
 <h4 id="github-action">github action</h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># This workflow will install Python dependencies, run tests and lint with a single version of Python</span><span class="w"></span>
-<span class="c1"># For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1"># This workflow will install Python dependencies, run tests and lint with a single version of Python</span>
+<span class="c1"># For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions</span>
 
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
 
-<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
 
-<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.os  }}</span><span class="w"></span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.os  }}</span>
 
-<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">fail-fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">os</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ubuntu-20.04</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">        </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.7&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fail-fast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">os</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ubuntu-20.04</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.7&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">]</span>
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python ${{ matrix.python }} on ${{ matrix.os }}</span><span class="w"></span>
-<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span><span class="w"></span>
-<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python }}</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python ${{ matrix.python }} on ${{ matrix.os }}</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python }}</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span><span class="w"></span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">python -m pip install --upgrade pip</span><span class="w"></span>
-<span class="w">          </span><span class="no">pip install tox</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">          </span><span class="no">pip install tox</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test with tox</span><span class="w"></span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">tox -e py</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test with tox</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">tox -e py</span>
 
-<span class="w">  </span><span class="nt">linting</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span><span class="w"></span>
+<span class="w">  </span><span class="nt">linting</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install tox</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">tox -e isort</span><span class="w"></span>
-<span class="w">          </span><span class="no">tox -e lint</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install tox</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">tox -e isort</span>
+<span class="w">          </span><span class="no">tox -e lint</span>
 </code></pre></div>
 <h4 id="gitlab-ci">gitlab-ci</h4>
-<div class="highlight"><pre><span></span><code><span class="nt">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.9</span><span class="w"></span>
-<span class="w">  </span><span class="nt">before_script</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -U pip</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">default</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.9</span>
+<span class="w">  </span><span class="nt">before_script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -U pip</span>
 
-<span class="nt">.base_test</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="w"></span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -U tox</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e py</span><span class="w"></span>
+<span class="nt">.base_test</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -U tox</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e py</span>
 
-<span class="nt">stages</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upload</span><span class="w"></span>
+<span class="nt">stages</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upload</span>
 
-<span class="c1"># Due to gitlab ci not support matrix build. So use YAML anchors:</span><span class="w"></span>
-<span class="c1"># https://forum.gitlab.com/t/matrix-builds-in-ci/9629</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">test:py37</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.7</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extends</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span><span class="w"></span>
+<span class="c1"># Due to gitlab ci not support matrix build. So use YAML anchors:</span>
+<span class="c1"># https://forum.gitlab.com/t/matrix-builds-in-ci/9629</span>
+<span class="nt">test:py37</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
+<span class="w">  </span><span class="nt">extends</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span>
 
-<span class="l l-Scalar l-Scalar-Plain">test:py38</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.8</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extends</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span><span class="w"></span>
+<span class="nt">test:py38</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.8</span>
+<span class="w">  </span><span class="nt">extends</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span>
 
-<span class="l l-Scalar l-Scalar-Plain">test:py39</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.9</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extends</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span><span class="w"></span>
+<span class="nt">test:py39</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.9</span>
+<span class="w">  </span><span class="nt">extends</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span>
 
-<span class="l l-Scalar l-Scalar-Plain">test:py310</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.10</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extends</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span><span class="w"></span>
+<span class="nt">test:py310</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.10</span>
+<span class="w">  </span><span class="nt">extends</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.base_test</span>
 
-<span class="l l-Scalar l-Scalar-Plain">test:lint</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="w"></span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -U tox</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e isort</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e lint</span><span class="w"></span>
+<span class="nt">test:lint</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -U tox</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e isort</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e lint</span>
 </code></pre></div>
 
 

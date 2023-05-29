@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pyloong.github.io/pythonic-project-guidelines/guidelines/advanced/configuration/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.4.1">
     
     
       
@@ -1180,7 +1180,7 @@
 
 
 <span class="k">def</span> <span class="nf">count_word</span><span class="p">(</span><span class="n">source_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param source_file:</span>
 <span class="sd">    :return:    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1211,8 +1211,8 @@
 </ul>
 <p>在项目中新建配置文件 <code>settings.yml</code></p>
 <p><strong>settings.yml</strong> ：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="nt">bar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">bar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 </code></pre></div>
 <p>新建配置模块 <code>config.py</code></p>
 <p><strong>config.py</strong> ：</p>
@@ -1269,34 +1269,34 @@ bar: 20
 <p>同时还会读取 <code>&lt;sys.prefix&gt;/etc/blog/settings.yml</code> 。这个一般作为生产环境的系统配置。如果使用的是系统 Python 环境，可能目录是在
 <code>/usr/local/etc/blog/settings.yml</code> ，如果是虚拟环境，则可能是 <code>/home/foo/.virtualenvs/blog-fxage/etc/blog/settings.yml</code> 。</p>
 <p>如果想自定义配置文件位置，可以通过设置环境变量 <code>BLOG_SETTINGS=/tmp/settings.yml</code> 指定 Dynaconf 加载文件的位置。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">DEBUG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">DEBUG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="nt">ALLOWED_HOSTS</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="nt">ALLOWED_HOSTS</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
 
-<span class="nt">INSTALLED_APPS</span><span class="p">:</span><span class="w"></span>
-<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynaconf_merge_unique</span><span class="w">   </span><span class="c1"># 指示 Dynaconf 将 INSTALLED_APPS 与默认配置合并而不是覆盖，并且进行去重</span><span class="w"></span>
-<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debug_toolbar</span><span class="w">    </span><span class="c1"># 指示 Dynaconf 将 debug_toolbar 添加到 INSTALLED_APPS 列表中</span><span class="w"></span>
+<span class="nt">INSTALLED_APPS</span><span class="p">:</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynaconf_merge_unique</span><span class="w">   </span><span class="c1"># 指示 Dynaconf 将 INSTALLED_APPS 与默认配置合并而不是覆盖，并且进行去重</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debug_toolbar</span><span class="w">    </span><span class="c1"># 指示 Dynaconf 将 debug_toolbar 添加到 INSTALLED_APPS 列表中</span>
 
-<span class="nt">MIDDLEWARE</span><span class="p">:</span><span class="w"></span>
-<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynaconf_merge_unique</span><span class="w"></span>
-<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debug_toolbar.middleware.DebugToolbarMiddleware</span><span class="w"></span>
+<span class="nt">MIDDLEWARE</span><span class="p">:</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynaconf_merge_unique</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debug_toolbar.middleware.DebugToolbarMiddleware</span>
 
-<span class="nt">DATABASES</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ENGINE</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;django.db.backends.mysql&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blo</span><span class="w"></span>
-<span class="w">    </span><span class="nt">USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;000000&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
+<span class="nt">DATABASES</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ENGINE</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;django.db.backends.mysql&#39;</span>
+<span class="w">    </span><span class="nt">NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blo</span>
+<span class="w">    </span><span class="nt">USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;000000&#39;</span>
+<span class="w">    </span><span class="nt">HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<span class="w">    </span><span class="nt">PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span>
 
-<span class="nt">REST_FRAMEWORK</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># 指示 Dynaconf 将 REST_FRAMEWORK 与默认配置合并，而不是覆盖</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dynaconf_merge_unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># 指示 Dynaconf 只修改 PAGE_SIZE 的值，其他不变</span><span class="w"></span>
-<span class="w">  </span><span class="nt">PAGE_SIZE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<span class="nt">REST_FRAMEWORK</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># 指示 Dynaconf 将 REST_FRAMEWORK 与默认配置合并，而不是覆盖</span>
+<span class="w">  </span><span class="nt">dynaconf_merge_unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="c1"># 指示 Dynaconf 只修改 PAGE_SIZE 的值，其他不变</span>
+<span class="w">  </span><span class="nt">PAGE_SIZE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="err">}</span>
 </code></pre></div>
 <p>上述配置在 Dynaconf 读取后，可以覆盖 <code>settings.py</code> 中的默认配置。其中有几个点需要注意：</p>
 <ul>
@@ -1310,21 +1310,21 @@ bar: 20
 环境变量。包括 <code>ENVVAR_FOR_DYNACONF='BLOG_SETTINGS'</code> 配置的 Dynaconf 加载配置文件的环境变量 <code>BLOG_SETTINGS</code> 。</p>
 <p>所以在使用环境变量的时候，不要错误的将 <code>BLOG_SETTINGS</code> 环境变量指定其他内容，而造成不必要的错误。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 使用环境变量配置单值</span>
-<span class="nb">export</span> <span class="nv">BLOG_DEBUG</span><span class="o">=</span><span class="s1">&#39;True&#39;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_DEBUG</span><span class="o">=</span><span class="s1">&#39;True&#39;</span>
 
 <span class="c1"># 使用环境变量配置对象</span>
-<span class="nb">export</span> <span class="nv">BLOG_DATABASES</span><span class="o">=</span><span class="s2">&quot;{&#39;default&#39;={&#39;ENGINE&#39;=&#39;django.db.backends.mysql&#39;, &#39;NAME&#39;=&#39;blog&#39;, &#39;USER&#39;=&#39;root&#39;, &#39;PASSWORD&#39;=&#39;000000&#39;, &#39;HOST&#39;=&#39;localhost&#39;, &#39;POST&#39;=3306}}&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_DATABASES</span><span class="o">=</span><span class="s2">&quot;{&#39;default&#39;={&#39;ENGINE&#39;=&#39;django.db.backends.mysql&#39;, &#39;NAME&#39;=&#39;blog&#39;, &#39;USER&#39;=&#39;root&#39;, &#39;PASSWORD&#39;=&#39;000000&#39;, &#39;HOST&#39;=&#39;localhost&#39;, &#39;POST&#39;=3306}}&quot;</span>
 
 <span class="c1"># 使用环境变量配置合并内容</span>
-<span class="nb">export</span> <span class="nv">BLOG_MIDDLEWARE</span><span class="o">=</span><span class="s1">&#39;[&quot;dynaconf_merge_unique&quot;, &quot;debug_toolbar.middleware.DebugToolbarMiddleware&quot;]&#39;</span>   <span class="c1"># 使用 dynaconf_merge_unique 合并并去重</span>
-<span class="nb">export</span> <span class="nv">BLOG_MIDDLEWARE</span><span class="o">=</span><span class="s1">&#39;@merge [&quot;debug_toolbar.middleware.DebugToolbarMiddleware&quot;]&#39;</span> <span class="c1"># 使用 merge 关键字</span>
-<span class="nb">export</span> <span class="nv">BLOG_MIDDLEWARE</span><span class="o">=</span><span class="s1">&#39;@merge debug_toolbar.middleware.DebugToolbarMiddleware&#39;</span> <span class="c1"># 简写</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_MIDDLEWARE</span><span class="o">=</span><span class="s1">&#39;[&quot;dynaconf_merge_unique&quot;, &quot;debug_toolbar.middleware.DebugToolbarMiddleware&quot;]&#39;</span><span class="w">   </span><span class="c1"># 使用 dynaconf_merge_unique 合并并去重</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_MIDDLEWARE</span><span class="o">=</span><span class="s1">&#39;@merge [&quot;debug_toolbar.middleware.DebugToolbarMiddleware&quot;]&#39;</span><span class="w"> </span><span class="c1"># 使用 merge 关键字</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_MIDDLEWARE</span><span class="o">=</span><span class="s1">&#39;@merge debug_toolbar.middleware.DebugToolbarMiddleware&#39;</span><span class="w"> </span><span class="c1"># 简写</span>
 
-<span class="nb">export</span> <span class="nv">BLOG_REST_FRAMEWORK</span><span class="o">=</span><span class="s1">&#39;{PAGE_SIZE=10, dynaconf_merge=true}&#39;</span>    <span class="c1"># 使用 dynaconf_merge 合并</span>
-<span class="nb">export</span> <span class="nv">BLOG_REST_FRAMEWORK</span><span class="o">=</span><span class="s1">&#39;@merge {PAGE_SIZE=10}&#39;</span>  <span class="c1"># 使用 merge 关键字</span>
-<span class="nb">export</span> <span class="nv">BLOG_REST_FRAMEWORK</span><span class="o">=</span><span class="s1">&#39;@merge PAGE_SIZE=10&#39;</span>    <span class="c1"># 简写</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_REST_FRAMEWORK</span><span class="o">=</span><span class="s1">&#39;{PAGE_SIZE=10, dynaconf_merge=true}&#39;</span><span class="w">    </span><span class="c1"># 使用 dynaconf_merge 合并</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_REST_FRAMEWORK</span><span class="o">=</span><span class="s1">&#39;@merge {PAGE_SIZE=10}&#39;</span><span class="w">  </span><span class="c1"># 使用 merge 关键字</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_REST_FRAMEWORK</span><span class="o">=</span><span class="s1">&#39;@merge PAGE_SIZE=10&#39;</span><span class="w">    </span><span class="c1"># 简写</span>
 
-<span class="nb">export</span> <span class="nv">BLOG_DATABASES__default__PASSWORD</span><span class="o">=</span><span class="s1">&#39;123456&#39;</span>   <span class="c1"># 使用两个下划线 (__) 作为子级</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLOG_DATABASES__default__PASSWORD</span><span class="o">=</span><span class="s1">&#39;123456&#39;</span><span class="w">   </span><span class="c1"># 使用两个下划线 (__) 作为子级</span>
 </code></pre></div>
 
 

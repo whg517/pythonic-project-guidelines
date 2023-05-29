@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pyloong.github.io/pythonic-project-guidelines/quick_start/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.4.1">
     
     
       
@@ -1410,39 +1410,39 @@
 <h3 id="13">1.3 虚拟环境工具</h3>
 <p>推荐使用 <a href="https://python-poetry.org/">Poetry</a> ，既包含了虚拟环境管理工具也支持打包发布等功能。</p>
 <p>在安装好 Python 环境后，应该在全局环境中安装 <a href="https://python-poetry.org/">Poetry</a> 。</p>
-<div class="highlight"><pre><span></span><code>sudo python -m pip install -U pip
-sudo pip install -U poetry
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>poetry
 </code></pre></div>
 <h3 id="14">1.4 初始化项目</h3>
 <p><a href="https://cookiecutter.readthedocs.io/en/1.7.2/README.html">cookiecutter</a> 是一个通过项目模板创建项目的命令行工具。</p>
 <p>安装 cookiecutter</p>
-<div class="highlight"><pre><span></span><code>sudo pip3 install -U cookiecutter
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>cookiecutter
 </code></pre></div>
 <p>初始化项目</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> workspace
-cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>workspace
+cookiecutter<span class="w"> </span>https://github.com/pyloong/cookiecutter-pythonic-project
 </code></pre></div>
 <p>运行命令后会出现下面的配置过程，如果你不清楚配置的具体用途，可以直接按回车使用默认配置，默认配置使用项目模板初始值。</p>
-<div class="highlight"><pre><span></span><code>❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-project_name <span class="o">[</span>My Project<span class="o">]</span>: Word Count
-project_slug <span class="o">[</span>word_count<span class="o">]</span>: 
-project_description <span class="o">[</span>My Awesome Project!<span class="o">]</span>: Word Count Project
-author_name <span class="o">[</span>Author<span class="o">]</span>: 
-author_email <span class="o">[</span>author@example.com<span class="o">]</span>: 
-version <span class="o">[</span><span class="m">0</span>.1.0<span class="o">]</span>: 
-Select python_version:
-<span class="m">1</span> - <span class="m">3</span>.10
-<span class="m">2</span> - <span class="m">3</span>.9
-Choose from <span class="m">1</span>, <span class="m">2</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>: 
-use_src_layout <span class="o">[</span>y<span class="o">]</span>: 
-use_poetry <span class="o">[</span>y<span class="o">]</span>: 
-use_docker <span class="o">[</span>n<span class="o">]</span>: 
-Select ci_tools:
-<span class="m">1</span> - none
-<span class="m">2</span> - Gitlab
-<span class="m">3</span> - Github
-Choose from <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span> <span class="o">[</span><span class="m">1</span><span class="o">]</span>: 
-init_skeleton <span class="o">[</span>n<span class="o">]</span>:
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>cookiecutter<span class="w"> </span>https://github.com/pyloong/cookiecutter-pythonic-project
+project_name<span class="w"> </span><span class="o">[</span>My<span class="w"> </span>Project<span class="o">]</span>:<span class="w"> </span>Word<span class="w"> </span>Count
+project_slug<span class="w"> </span><span class="o">[</span>word_count<span class="o">]</span>:<span class="w"> </span>
+project_description<span class="w"> </span><span class="o">[</span>My<span class="w"> </span>Awesome<span class="w"> </span>Project!<span class="o">]</span>:<span class="w"> </span>Word<span class="w"> </span>Count<span class="w"> </span>Project
+author_name<span class="w"> </span><span class="o">[</span>Author<span class="o">]</span>:<span class="w"> </span>
+author_email<span class="w"> </span><span class="o">[</span>author@example.com<span class="o">]</span>:<span class="w"> </span>
+version<span class="w"> </span><span class="o">[</span><span class="m">0</span>.1.0<span class="o">]</span>:<span class="w"> </span>
+Select<span class="w"> </span>python_version:
+<span class="m">1</span><span class="w"> </span>-<span class="w"> </span><span class="m">3</span>.10
+<span class="m">2</span><span class="w"> </span>-<span class="w"> </span><span class="m">3</span>.9
+Choose<span class="w"> </span>from<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>
+use_src_layout<span class="w"> </span><span class="o">[</span>y<span class="o">]</span>:<span class="w"> </span>
+use_poetry<span class="w"> </span><span class="o">[</span>y<span class="o">]</span>:<span class="w"> </span>
+use_docker<span class="w"> </span><span class="o">[</span>n<span class="o">]</span>:<span class="w"> </span>
+Select<span class="w"> </span>ci_tools:
+<span class="m">1</span><span class="w"> </span>-<span class="w"> </span>none
+<span class="m">2</span><span class="w"> </span>-<span class="w"> </span>Gitlab
+<span class="m">3</span><span class="w"> </span>-<span class="w"> </span>Github
+Choose<span class="w"> </span>from<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>
+init_skeleton<span class="w"> </span><span class="o">[</span>n<span class="o">]</span>:
 </code></pre></div>
 <p>如果你在使用项目模板过程中有任何问题或疑问，可以通过发起 <a href="https://github.com/pyloong/cookiecutter-pythonic-project/issues">issues</a> 进行反馈。</p>
 <p>生成后的项目结构如下：</p>
@@ -1465,18 +1465,18 @@ init_skeleton <span class="o">[</span>n<span class="o">]</span>:
 <p><code>pyproject.toml</code> 包含项目初始依赖，和项目的描述信息，<code>tox.ini</code> 定义了任务自动化执行逻辑。</p>
 <h3 id="15">1.5 初始化项目环境</h3>
 <p>使用 poetry 初始化一个虚拟环境。</p>
-<div class="highlight"><pre><span></span><code>poetry install
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>install
 </code></pre></div>
 <p>初始化完成后，会生成一个 <code>poetry.lock</code>，可以用来锁定生产环境安装包的版本和依赖信息。</p>
 <h3 id="16-git">1.6 初始化 Git</h3>
 <p>推荐使用 <a href="https://git-scm.com/">Git</a> 对项目进行版本管理。所以需要提前安装 Git ，并熟悉常用的 Git 概念和 Git 命令。</p>
-<div class="highlight"><pre><span></span><code>git init
-git config user.name <span class="nb">test</span>
-git config user.email test@example.com
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init
+git<span class="w"> </span>config<span class="w"> </span>user.name<span class="w"> </span><span class="nb">test</span>
+git<span class="w"> </span>config<span class="w"> </span>user.email<span class="w"> </span>test@example.com
 
 <span class="c1"># 初始化项目提交</span>
-git add .
-git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 </code></pre></div>
 <h3 id="17">1.7 会用到的其他工具</h3>
 <p>在生成的 <code>pyproject.toml</code> 文件中，默认添加了一些开发环境中常用的工具。</p>
@@ -1492,7 +1492,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 <p>如果想要了解相关的功能，可以阅读对应的技术说明文档。</p>
 <h2 id="2">2. 功能开发</h2>
 <p>首先将项目以可编辑方式安装到环境中：</p>
-<div class="highlight"><pre><span></span><code>pip install -e .
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 <p>这样做的目的是将 <code>src</code> 下的包安装到 Python 环境中，否则无法正常导入包中的模块。</p>
 <h3 id="21">2.1 功能需求</h3>
@@ -1512,7 +1512,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">source_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dest_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Count source</span>
 <span class="sd">    :param source_file:</span>
 <span class="sd">    :param dest_file:</span>
@@ -1529,7 +1529,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">read_from_file</span><span class="p">(</span><span class="n">source_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    :param source_file:</span>
 <span class="sd">    :return:</span>
@@ -1543,7 +1543,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">write_to_file</span><span class="p">(</span><span class="n">dest_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">total_words</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write result to file</span>
 <span class="sd">    :param dest_file:</span>
 <span class="sd">    :param total_words:</span>
@@ -1555,14 +1555,14 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 </code></pre></div>
 <h4 id="221">2.2.1 导入格式化</h4>
 <p>在项目根目录运行 <a href="https://pycqa.github.io/isort/">isort</a> 对导入进行格式化。</p>
-<div class="highlight"><pre><span></span><code>isort .
+<div class="highlight"><pre><span></span><code>isort<span class="w"> </span>.
 </code></pre></div>
 <p>此操作会自动修改代码，将导入的包格式化。如果想查看区别，可以运行如下命令：</p>
-<div class="highlight"><pre><span></span><code>isort . --check-only --diff
+<div class="highlight"><pre><span></span><code>isort<span class="w"> </span>.<span class="w"> </span>--check-only<span class="w"> </span>--diff
 </code></pre></div>
 <h4 id="222">2.2.2 代码风格检查</h4>
 <p>在项目根目录运行 <a href="https://www.pylint.org/">pylint</a> 检查代码是否规范，是否符合 <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> 标准。</p>
-<div class="highlight"><pre><span></span><code>pylint tests src
+<div class="highlight"><pre><span></span><code>pylint<span class="w"> </span>tests<span class="w"> </span>src
 </code></pre></div>
 <p>此操作会列出代码中不符合规范的部分，并显示对应的规范名称。可以在<a href="https://pylint.readthedocs.io/en/latest/technical_reference/features.html">这里</a>找到所有规则。</p>
 <p>在完成修改后再次运行两个命令，直到都没有异常输出为止。</p>
@@ -1571,7 +1571,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 <p>如果你使用的是 Pycharm 开发，可以通过点击  <code>File</code> --&gt; <code>Settings</code> --&gt; <code>Tools</code> --&gt; <code>Python Integrated Tools</code> --&gt; <code>Testing</code> --&gt; <code>Default runner</code> 选择测试框架，推荐使用 <code>pytest</code>。</p>
 </blockquote>
 <p>为了方便使用 <code>mock</code> 需要安装 <code>pytest-mock</code> 模块，可以在 <code>pytest</code> 的 <code>fixture</code> 特性上使用 <code>mock</code>。</p>
-<div class="highlight"><pre><span></span><code>poetry add --dev pytest-mock
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest-mock
 </code></pre></div>
 <p>添加测试配置，在 <code>tests/conftest.py</code> 中加入：</p>
 <div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Test config&quot;&quot;&quot;</span>
@@ -1583,7 +1583,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">mock_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Mock a path, and clean when unit test done.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mock a path, and clean when unit test done.&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">temp_path</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">Path</span><span class="p">(</span><span class="n">temp_path</span><span class="p">)</span>
 </code></pre></div>
@@ -1599,7 +1599,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;mock_source_file&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">fixture_mock_source_file</span><span class="p">(</span><span class="n">mock_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;mock source_file, this file has two words.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;mock source_file, this file has two words.&quot;&quot;&quot;</span>
     <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;words&#39;</span><span class="p">]</span>
     <span class="n">source_file</span> <span class="o">=</span> <span class="n">mock_path</span> <span class="o">/</span> <span class="s1">&#39;source.txt&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">obj</span><span class="p">:</span>
@@ -1608,13 +1608,13 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">test_read_from_file</span><span class="p">(</span><span class="n">mock_source_file</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Test read_from_file&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test read_from_file&quot;&quot;&quot;</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">read_from_file</span><span class="p">(</span><span class="n">mock_source_file</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 
 
 <span class="k">def</span> <span class="nf">test_write_to_file</span><span class="p">(</span><span class="n">mock_path</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Test write_to_file&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test write_to_file&quot;&quot;&quot;</span>
     <span class="n">dest_file</span> <span class="o">=</span> <span class="n">mock_path</span> <span class="o">/</span> <span class="s1">&#39;dest.txt&#39;</span>
     <span class="n">write_to_file</span><span class="p">(</span><span class="n">dest_file</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dest_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">obj</span><span class="p">:</span>
@@ -1623,7 +1623,7 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">test_count</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">mock_path</span><span class="p">,</span> <span class="n">mock_source_file</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Test count&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test count&quot;&quot;&quot;</span>
     <span class="n">mock_read_from_file</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span>
         <span class="s1">&#39;word_count.counter.read_from_file&#39;</span><span class="p">,</span>
         <span class="n">return_value</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -1640,8 +1640,8 @@ git commit -m <span class="s2">&quot;feat: 初始化项目提交&quot;</span>
 <p>然后运行 <code>isort</code> 和 <code>pylint</code> 格式化代码并检查代码风格。</p>
 <h4 id="224">2.2.4 提交代码</h4>
 <p>一个功能特性开发完成后，需要提交代码来保存记录，避免意外操作。</p>
-<div class="highlight"><pre><span></span><code>git add .
-git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并完成测试。&quot;</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并完成测试。&quot;</span>
 </code></pre></div>
 <h3 id="23">2.3 编写命令行入口</h3>
 <p>在 <code>src/word_count/</code> 目录下，创建 <code>cmdline.py</code> 文件，加入如下内容：</p>
@@ -1654,7 +1654,7 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
 
 
 <span class="k">def</span> <span class="nf">init_args</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Init argument and parse&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Init argument and parse&quot;&quot;&quot;</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--source&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source file used for count.&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--dest&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Dest file used for count result&#39;</span><span class="p">)</span>
@@ -1662,7 +1662,7 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Execute&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Execute&quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">init_args</span><span class="p">()</span>
     <span class="n">count</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">dest</span><span class="p">)</span>
 
@@ -1682,7 +1682,7 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
 
 
 <span class="k">def</span> <span class="nf">test_help</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;test help command&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;test help command&quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;word_count&#39;</span><span class="p">,</span> <span class="s1">&#39;-h&#39;</span><span class="p">]</span>
     <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;argv&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">SystemExit</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
@@ -1694,7 +1694,7 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
     <span class="k">assert</span> <span class="s1">&#39;-d DEST&#39;</span> <span class="ow">in</span> <span class="n">outerr</span><span class="o">.</span><span class="n">out</span>
 
 <span class="k">def</span> <span class="nf">test_only_pass_source</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;test only pass -s &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;test only pass -s &quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;word_count&#39;</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]</span>
     <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;argv&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">SystemExit</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
@@ -1705,7 +1705,7 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
     <span class="k">assert</span> <span class="s1">&#39;the following arguments are required: -d&#39;</span> <span class="ow">in</span> <span class="n">outerr</span><span class="o">.</span><span class="n">err</span>
 
 <span class="k">def</span> <span class="nf">test_only_pass_dest</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;test only pass -d&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;test only pass -d&quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;word_count&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]</span>
     <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;argv&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">SystemExit</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
@@ -1716,7 +1716,7 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
     <span class="k">assert</span> <span class="s1">&#39;the following arguments are required: -s&#39;</span> <span class="ow">in</span> <span class="n">outerr</span><span class="o">.</span><span class="n">err</span>
 
 <span class="k">def</span> <span class="nf">test_main</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;test cmdline, and everything is fine.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;test cmdline, and everything is fine.&quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;word_count&#39;</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span>
     <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;argv&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
     <span class="n">mock_count</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;word_count.cmdline.count&#39;</span><span class="p">)</span>
@@ -1726,8 +1726,8 @@ git commit -m <span class="s2">&quot;feat(counter): 增加 Counter 逻辑，并�
 <p>运行 <code>pytest</code>，让测试正确运行。</p>
 <p>运行 <code>isort</code> 和 <code>pylint</code> 格式化代码并检查代码风格。</p>
 <h4 id="232">2.3.2 提交代码</h4>
-<div class="highlight"><pre><span></span><code>git add .
-git commit -m <span class="s2">&quot;feat(cmdline): 增加 cmdline 逻辑，并完成测试。&quot;</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(cmdline): 增加 cmdline 逻辑，并完成测试。&quot;</span>
 </code></pre></div>
 <h3 id="24">2.4 总结</h3>
 <p>至此，我们的功能已经开发完成。在整个开发过程中，我们遵循了 “添加功能特性” =&gt; “代码风格检查” =&gt; “单元测试” 的开发流程。</p>
@@ -1735,18 +1735,18 @@ git commit -m <span class="s2">&quot;feat(cmdline): 增加 cmdline 逻辑，并�
 <div class="highlight"><pre><span></span><code>tox
 </code></pre></div>
 <p>现在可以在终端中运行单词统计：</p>
-<div class="highlight"><pre><span></span><code>python src/word_count/cmdline.py -s foo.txt -d bar.txt
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>src/word_count/cmdline.py<span class="w"> </span>-s<span class="w"> </span>foo.txt<span class="w"> </span>-d<span class="w"> </span>bar.txt
 </code></pre></div>
 <h3 id="25">2.5 打包发布</h3>
 <p>如果希望别人能更方便的使用项目，可以将项目打包发布到 <a href="https://pypi.org/">pypi</a> 中，然后在需要使用的地方运行 <code>pip install -U word-count</code>。</p>
 <p>但是安装到环境后去运行 <code>cmdline.py</code> 会比较麻烦，所以需要将 <code>cmdline.py</code> 注册成可执行命令。</p>
 <p>修改 <code>pyproject.toml</code> ，增加如下内容：</p>
-<div class="highlight"><pre><span></span><code><span class="k">[tool.poetry.plugins.console_scripts]</span><span class="w"></span>
-<span class="n">word_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;word_count.cmdline:main&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[tool.poetry.plugins.console_scripts]</span>
+<span class="n">word_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;word_count.cmdline:main&quot;</span>
 </code></pre></div>
 <p>当使用 <code>pip</code> 命令将项目包安装到环境后，会自动注册一个 <code>word_count</code> 的可执行命令。</p>
 <p>再次将本地项目以可编辑方式安装到当前 Python 环境：</p>
-<div class="highlight"><pre><span></span><code>pip install -e .
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 <p>然后就可以正常使用 <code>word_count</code> 命令：</p>
 <div class="highlight"><pre><span></span><code>$ word_count -h
@@ -1760,13 +1760,13 @@ optional arguments:
 </code></pre></div>
 <h4 id="251">2.5.1 打包</h4>
 <p>运行打包命令：</p>
-<div class="highlight"><pre><span></span><code>poetry build 
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>build<span class="w"> </span>
 </code></pre></div>
 <p><code>sdist</code> 会将项目打包成源码包， <code>bdist_wheel</code> 会将项目打包成编译后的二进制包。</p>
 <p>打包后的文件在 <code>dist</code> 目录中。可以直接在其他地方运行 <code>pip install word_count.wheel</code> 安装。</p>
 <h4 id="252">2.5.2 发布</h4>
 <p>将开发好的项目发布到索引仓库，或内网的私有仓库。</p>
-<div class="highlight"><pre><span></span><code>poetry publish
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>publish
 </code></pre></div>
 <p>默认会将项目发布到 <a href="https://pypi.org/">pypi</a> 中，所以需要有对应的登录账号。</p>
 

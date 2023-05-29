@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pyloong.github.io/pythonic-project-guidelines/guidelines/project_management/document/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.4.1">
     
     
       
@@ -1180,11 +1180,11 @@ INFO     -  [11:00:22] Serving on http://127.0.0.1:8000/
 <p>然后浏览器打开 [http://127.0.0.1:8000] 访问生成的文档站点。</p>
 <p>站点使用默认主题，风格有点复古。可以使用 <a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a> 让站点更好看：</p>
 <p>安装 <code>mkdocs-material</code> ：</p>
-<div class="highlight"><pre><span></span><code>pipenv install mkdocs-material
+<div class="highlight"><pre><span></span><code>pipenv<span class="w"> </span>install<span class="w"> </span>mkdocs-material
 </code></pre></div>
 <p>修改配置文件 <code>mkdocs.yml</code> ，增加如下内容：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span>
 </code></pre></div>
 <p>重新启动 <code>mkdocs serve</code> ，即可看到注意已经改变。</p>
 <p>对于 Mkdocs 的更多使用细节可以参考文档：</p>

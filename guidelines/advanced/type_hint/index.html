@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pyloong.github.io/pythonic-project-guidelines/guidelines/advanced/type_hint/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.4.1">
     
     
       
@@ -1205,7 +1205,7 @@
 
 
 <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">source_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dest_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Count source</span>
 <span class="sd">    :param source_file:</span>
 <span class="sd">    :param dest_file:</span>
@@ -1216,7 +1216,7 @@
 
 
 <span class="k">def</span> <span class="nf">read_from_file</span><span class="p">(</span><span class="n">source_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read file</span>
 <span class="sd">    :param source_file:</span>
 <span class="sd">    :return:</span>
@@ -1231,7 +1231,7 @@
 
 
 <span class="k">def</span> <span class="nf">write_to_file</span><span class="p">(</span><span class="n">dest_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">total_words</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write result to file</span>
 <span class="sd">    :param dest_file:</span>
 <span class="sd">    :param total_words:</span>
@@ -1253,23 +1253,23 @@
 
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;User&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;User&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;User&#39;s name&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;User&#39;s name&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;repr&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;repr&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;&lt;User(name=&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;)&gt;&#39;</span>
 
 
 <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Mock to save a user&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mock to save a user&quot;&quot;&quot;</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Save object: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
 
 
@@ -1284,7 +1284,7 @@
 
 
 <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">records</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;Count word of all lines.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Count word of all lines.&quot;&quot;&quot;</span>
     <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
@@ -1310,19 +1310,19 @@
 
 
 <span class="k">class</span> <span class="nc">BaseTask</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;base Task&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;base Task&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Run task&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run task&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Stop task&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop task&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
 
 <span class="k">class</span> <span class="nc">FileTask</span><span class="p">(</span><span class="n">BaseTask</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;File task&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;File task&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">pass</span>
@@ -1332,7 +1332,7 @@
 
 
 <span class="k">class</span> <span class="nc">NetworkTask</span><span class="p">(</span><span class="n">BaseTask</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Network task&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Network task&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">pass</span>
@@ -1350,7 +1350,7 @@
         <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArgsType</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
         <span class="n">kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">KwargsType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Wrap a func in a threading executor &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrap a func in a threading executor &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="n">func</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span>
@@ -1358,7 +1358,7 @@
 
 
 <span class="k">def</span> <span class="nf">task_runner</span><span class="p">(</span><span class="n">task_kls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseTask</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Task runner&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task runner&quot;&quot;&quot;</span>
     <span class="n">task</span> <span class="o">=</span> <span class="n">task_kls</span><span class="p">()</span>
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run_in_executor</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">run</span><span class="p">))</span>
 </code></pre></div>
