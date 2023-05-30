@@ -1236,46 +1236,78 @@
 
 
 <h1 id="_1">打包发布</h1>
+<p>本章节，你可以学到：</p>
+<ul>
+<li>使用 poetry 构建项目</li>
+<li>使用 poetry 将项目发布到 pypi</li>
+<li>安装并使用你发布到 pypi 的项目</li>
+</ul>
 <p>项目开发测试完成后，可以将项目发布到 Pypi 仓库中，然后在其他地方通过 Pip 命令即可
 安装使用。对于一些工具包比较方便。</p>
 <h2 id="_2">打包</h2>
 <p>根据 PEP 517 规范，新的打包机制可通过 <code>poetry</code> 工具来操作。</p>
-<p>安装打包工具：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>poetry
-</code></pre></div>
-<p>然后运行打包命令：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>build
-</code></pre></div>
+<p>执行构建命令：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>poetry<span class="w"> </span>build
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Building<span class="w"> </span>example_etl<span class="w"> </span><span class="o">(</span><span class="m">0</span>.1.0<span class="o">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-<span class="w"> </span>Building<span class="w"> </span>sdist
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-<span class="w"> </span>Built<span class="w"> </span>example_etl-0.1.0.tar.gz
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-<span class="w"> </span>Building<span class="w"> </span>wheel
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-<span class="w"> </span>Built<span class="w"> </span>example_etl-0.1.0-py3-none-any.whl
+</span></code></pre></div>
 <h2 id="_3">发布</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry<span class="w"> </span>publish
-</code></pre></div>
-<p>输入账号密码后，即可将项目发布到 Pypi</p>
+<p>本项目为测试项目，以下操作可以将项目发布到 <a href="https://test.pypi.org/">https://test.pypi.org/</a> 。</p>
+<p>首先在 <a href="https://test.pypi.org/">https://test.pypi.org/</a> 注册账号。</p>
+<p>然后配置 poetry 发布的仓库：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>config<span class="w"> </span>repositories.testpypi<span class="w"> </span>https://test.pypi.org/legacy/
+</span></code></pre></div>
+<p>然后填写根据你的用户名密码修改如下命令后，将项目发布到 testpypi 上。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry<span class="w"> </span>publish<span class="w"> </span>--repository<span class="o">=</span>testpypi<span class="w"> </span>--username<span class="o">=</span>USERNAME<span class="w"> </span>--password<span class="o">=</span>PASSWORD
+</span></code></pre></div>
 <blockquote>
-<p>注意：由于 Pypi 上的项目名称是唯一的， <code>example_etl</code> 名称已经被使用，所以你在测试时，需要使用其他项目名称。</p>
+<p>注意：不建议将测试项目发布都 <a href="https://pypi.org/">https://pypi.org/</a> 上。在 <a href="https://pypi.org/">https://pypi.org/</a> 上的项目名称是全局唯一的，
+所以如果你考虑到将项目发布到 <a href="https://pypi.org/">https://pypi.org/</a> 上前，应定一个不存在名称。</p>
 </blockquote>
 <h2 id="_4">安装测试</h2>
 <p>项目正常发布后，可以通过 pip 安装到本地使用：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>example-etl
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.org/simple<span class="w"> </span>example-etl
+</span></code></pre></div>
+<p>由于我们使用的是测试仓库，所以需要指定 <code>--index-url https://test.pypi.org/simple/</code> 参数，用来安装发布到 <a href="https://test.pypi.org/">https://test.pypi.org/</a> 的包
+同时使用 <code>--extra-index-url https://pypi.org/simple</code> 参数，来安装 <code>example-etl</code> 依赖的包。</p>
 <p>输出结果如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>❯ pip install example-etl
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Collecting example-etl
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Downloading example_etl-0.0.1.dev0-py3-none-any.whl (14 kB)
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Collecting dynaconf==3.1.7
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  Downloading dynaconf-3.1.7-py2.py3-none-any.whl (200 kB)
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>     |████████████████████████████████| 200 kB 850 kB/s            
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Collecting stevedore==3.5.0
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  Downloading stevedore-3.5.0-py3-none-any.whl (49 kB)
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     |████████████████████████████████| 49 kB 747 kB/s            
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Collecting click==8.0.3
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  Downloading click-8.0.3-py3-none-any.whl (97 kB)
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>     |████████████████████████████████| 97 kB 554 kB/s            
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>Collecting pbr!=2.1.0,&gt;=2.0.0
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  Downloading pbr-5.8.0-py2.py3-none-any.whl (112 kB)
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>     |████████████████████████████████| 112 kB 1.9 MB/s            
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>Installing collected packages: pbr, stevedore, dynaconf, click, example-etl
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>Successfully installed click-8.0.3 dynaconf-3.1.7 example-etl-0.0.1.dev0 pbr-5.8.0 stevedore-3.5.0
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>❯ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple example-etl
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Looking in indexes: https://test.pypi.org/simple/, https://pypi.org/simple
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Collecting example-etl
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  Downloading https://test-files.pythonhosted.org/packages/f3/51/8cea9e34ae2f0e48abb6a0aa58cdf29d4d2900bdd97e45b8d4ee24b357f0/example_etl-0.1.0-py3-none-any.whl (9.5 kB)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Collecting stevedore&lt;6.0.0,&gt;=5.1.0
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  Downloading stevedore-5.1.0-py3-none-any.whl (49 kB)
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.6/49.6 kB 195.3 kB/s eta 0:00:00
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Collecting click&lt;9.0.0,&gt;=8.1.3
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Downloading click-8.1.3-py3-none-any.whl (96 kB)
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 389.6 kB/s eta 0:00:00
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Collecting dynaconf&lt;4.0.0,&gt;=3.1.12
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  Downloading dynaconf-3.1.12-py2.py3-none-any.whl (211 kB)
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.8/211.8 kB 878.8 kB/s eta 0:00:00
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>Collecting pbr!=2.1.0,&gt;=2.0.0
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  Downloading pbr-5.11.1-py2.py3-none-any.whl (112 kB)
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 112.7/112.7 kB 1.7 MB/s eta 0:00:00
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>Installing collected packages: pbr, dynaconf, click, stevedore, example-etl
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>Successfully installed click-8.1.3 dynaconf-3.1.12 example-etl-0.1.0 pbr-5.11.1 stevedore-5.1.0
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>  Downloading example_etl-0.0.1.dev0-py3-none-any.whl (14 kB)
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>Collecting dynaconf==3.1.7
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>  Downloading dynaconf-3.1.7-py2.py3-none-any.whl (200 kB)
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>     |████████████████████████████████| 200 kB 850 kB/s            
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>Collecting stevedore==3.5.0
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  Downloading stevedore-3.5.0-py3-none-any.whl (49 kB)
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>     |████████████████████████████████| 49 kB 747 kB/s            
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>Collecting click==8.0.3
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>  Downloading click-8.0.3-py3-none-any.whl (97 kB)
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>     |████████████████████████████████| 97 kB 554 kB/s            
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>Collecting pbr!=2.1.0,&gt;=2.0.0
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>  Downloading pbr-5.8.0-py2.py3-none-any.whl (112 kB)
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>     |████████████████████████████████| 112 kB 1.9 MB/s            
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>Installing collected packages: pbr, stevedore, dynaconf, click, example-etl
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>Successfully installed click-8.0.3 dynaconf-3.1.7 example-etl-0.0.1.dev0 pbr-5.8.0 stevedore-3.5.0
+</span></code></pre></div>
 
 
 

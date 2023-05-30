@@ -1250,35 +1250,35 @@
 <h3 id="task">注册Task</h3>
 <p>将<code>main</code>命令行入口和上述实现的<code>Task</code>类注册到命名空间中。</p>
 <p>编辑<code>pyproject.toml</code>文件，增加<a href="https://python-poetry.org/docs/plugins/">poetry插件</a>如下内容：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[tool.poetry.plugins.console_scripts]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">automotive_data_etl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;automotive_data_etl.cmdline:main&quot;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">[tool.poetry.plugins.&quot;etl_tasks&quot;]</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">automotive_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;automotive_data_etl.tasks.automotive_task.task:AutomotiveDataTask&quot;</span>
-</code></pre></div>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[tool.poetry.plugins.console_scripts]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">automotive_data_etl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;automotive_data_etl.cmdline:main&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">[tool.poetry.plugins.&quot;etl_tasks&quot;]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">automotive_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;automotive_data_etl.tasks.automotive_task.task:AutomotiveDataTask&quot;</span>
+</span></code></pre></div>
 <p>这么做的目的是将<code>AutomotiveDataTask</code>注册到<code>entry_points</code>中， 然后在程序中使用<code>importlib.metadata</code>
 根据名称空间查找。而 <code>stevedore</code> 则是封装了查找的复杂逻辑，让使用插件更简单。</p>
 <p>将项目以可编辑模式安装到当前环境：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>install
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>install
+</span></code></pre></div>
 <p>可以在 <code>Python Console</code> 下查看注册插件信息：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>importlib.metadata<span class="w"> </span>import<span class="w"> </span>entry_points
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt;&gt;&gt;<span class="w"> </span>entry_points<span class="o">(</span><span class="nv">group</span><span class="o">=</span><span class="s1">&#39;etl_tasks&#39;</span><span class="o">)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="o">[</span>EntryPoint<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;automotive_task&#39;</span>,<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="s1">&#39;automotive_data_etl.tasks.automotive_task.task:AutomotiveDataTask&#39;</span>,<span class="w"> </span><span class="nv">group</span><span class="o">=</span><span class="s1">&#39;etl_tasks&#39;</span><span class="o">)]</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>importlib.metadata<span class="w"> </span>import<span class="w"> </span>entry_points
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt;&gt;&gt;<span class="w"> </span>entry_points<span class="o">(</span><span class="nv">group</span><span class="o">=</span><span class="s1">&#39;etl_tasks&#39;</span><span class="o">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="o">[</span>EntryPoint<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;automotive_task&#39;</span>,<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="s1">&#39;automotive_data_etl.tasks.automotive_task.task:AutomotiveDataTask&#39;</span>,<span class="w"> </span><span class="nv">group</span><span class="o">=</span><span class="s1">&#39;etl_tasks&#39;</span><span class="o">)]</span>
+</span></code></pre></div>
 <p>将本地项目以可编辑方式安装到当前 Python 环境：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</span></code></pre></div>
 <h3 id="task_1">运行Task</h3>
 <p>然后通过命令行的方式运行<code>Task</code>，通过命令行参数的方式更新输入输出路径：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>automotive_data_etl<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--env<span class="o">=</span>development<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--task<span class="o">=</span>automotive_task<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--input<span class="o">=</span>tmp/input/car_price.csv<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--output<span class="o">=</span>tmp/output/
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>automotive_data_etl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--env<span class="o">=</span>development<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--task<span class="o">=</span>automotive_task<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--input<span class="o">=</span>tmp/input/car_price.csv<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--output<span class="o">=</span>tmp/output/
+</span></code></pre></div>
 <!--- TODO
 ## Spark运行
 
@@ -1287,19 +1287,19 @@
 
 将`automotive_data_etl`程序打包，在用户目录下执行：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry<span class="w"> </span>build
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry<span class="w"> </span>build
+</span></code></pre></div>
 
 打包后生成`dist`目录，目录下包含`automotive_data_etl-0.1.0.tar.gz`和`automotive_data_etl-0.1.0-py3-none-any.whl`文件。
 
 接下来可以使用`spark-submit`运行程序：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./bin/spark-submit<span class="w"> </span>--master<span class="w"> </span>k8s://HOST:PORT<span class="w"> </span>--py-files<span class="w"> </span>automotive_data_etl-0.1.0-py3-none-any.whl<span class="w"> </span>src/automotive_data_etl/cmdline.py<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--env<span class="o">=</span>prod<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--task<span class="o">=</span>automotive_task<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>--input<span class="o">=</span>tmp/input/car_price.csv<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>--output<span class="o">=</span>tmp/output/
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./bin/spark-submit<span class="w"> </span>--master<span class="w"> </span>k8s://HOST:PORT<span class="w"> </span>--py-files<span class="w"> </span>automotive_data_etl-0.1.0-py3-none-any.whl<span class="w"> </span>src/automotive_data_etl/cmdline.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--env<span class="o">=</span>prod<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--task<span class="o">=</span>automotive_task<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>--input<span class="o">=</span>tmp/input/car_price.csv<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>--output<span class="o">=</span>tmp/output/
+</span></code></pre></div>
 -->
 
 

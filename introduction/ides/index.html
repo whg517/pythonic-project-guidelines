@@ -513,22 +513,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    因为在此系统上禁止运行脚本
+  <a href="#vscode" class="md-nav__link">
+    vscode 终端无法自动启用 虚拟环境
   </a>
   
-    <nav class="md-nav" aria-label="因为在此系统上禁止运行脚本">
+    <nav class="md-nav" aria-label="vscode 终端无法自动启用 虚拟环境">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     问题原因
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     解决方法
   </a>
   
@@ -1276,22 +1276,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    因为在此系统上禁止运行脚本
+  <a href="#vscode" class="md-nav__link">
+    vscode 终端无法自动启用 虚拟环境
   </a>
   
-    <nav class="md-nav" aria-label="因为在此系统上禁止运行脚本">
+    <nav class="md-nav" aria-label="vscode 终端无法自动启用 虚拟环境">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     问题原因
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     解决方法
   </a>
   
@@ -1339,42 +1339,44 @@
 <h2 id="visual-studio-code">Visual Studio Code</h2>
 <p><a href="https://code.visualstudio.com/">VScode</a> 是微软开发的一款文本编辑器，通过自带的插件系统，可以将文本编辑器打造成一个集成开发工具。</p>
 <p>从官网下载并安装。</p>
+<p><img alt="windows-vscode-installed" src="../../assets/images/ides/windows-vscode-installed.jpg" /></p>
 <h3 id="_1">配置</h3>
 <p>从插件中心安装中文插件：</p>
-<p><img alt="windows-vscode-language-config" src="../../assets/images/ides/windows-vscode-language-config.png" /></p>
+<p><img alt="windows-vscode-language-config" src="../../assets/images/ides/windows-vscode-language-config.jpg" /></p>
 <p>从插件中心安装 <code>Python Extension Pack</code> 插件：</p>
-<p><img alt="windows-vscode-python-config" src="../../assets/images/ides/windows-vscode-python-config.png" /></p>
+<p><img alt="windows-vscode-python-config" src="../../assets/images/ides/windows-vscode-python-config.jpg" /></p>
 <h3 id="_2">使用</h3>
 <p>创建一个临时目录，然后选择使用 vscode 打开。Windows 可以通过右击，选择 <code>通过 Code 打开</code> ， Linux 可以在终端使用 <code>code demo</code> 命令打开。</p>
-<p><img alt="windows-vscode-open-demo" src="../../assets/images/ides/windows-vscode-open-demo.png" /></p>
+<p><img alt="windows-vscode-open-demo" src="../../assets/images/ides/windows-vscode-open-demo.jpg" /></p>
 <p>然后使用快捷键 <code>Ctrl + `</code> 组合键打开终端，执行 <code>poetry init</code> 根据提示操作，初始化 <code>pyproject.toml</code> 的配置文件，执行 <code>poetry shell</code>进行虚拟环境创建，执行 <code>poetry install</code>进行依赖安装：</p>
-<p><img alt="windows-vscode-demo-pipenv" src="../assets/images/ides/windows-vscode-demo-pipenv.png" /></p>
+<p><img alt="windows-vscode-demo-poetry" src="../../assets/images/ides/windows-vscode-demo-poetry.jpg" /></p>
 <p>然后使用 <code>Ctrl + Shift + p</code> 打开 vscode 的指令窗口，在窗口中输入 <code>&gt;python: select Interpreter</code> 来选择项目需要使用的 Python 解释器，
 然后选择上面一步创建的 Python 解释器：</p>
-<p><img alt="windows-vscode-demo-select-interpreter" src="../../assets/images/ides/windows-vscode-demo-select-interpreter.png" /></p>
+<p><img alt="windows-vscode-demo-select-interpreter" src="../../assets/images/ides/windows-vscode-demo-select-interpreter.jpg" /></p>
 <p>然后可以看到窗口的左下角已经出现了上一步选择 Python 解释器。</p>
-<p>创建新文件，并输入如下代码：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">sys</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
-</code></pre></div>
-<p><img alt="windows-vscode-demo-new-file" src="../../assets/images/ides/windows-vscode-demo-new-file.png" /></p>
+<p>创建新文件 <code>demo.py</code>，并输入如下代码：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</span></code></pre></div>
+<p><img alt="windows-vscode-demo-new-file" src="../../assets/images/ides/windows-vscode-demo-new-file.jpg" /></p>
 <p>然后右击该文件，选择 <code>在终端中运行 Python 文件</code> ：</p>
-<p><img alt="windows-vscode-demo-run-file" src="../../assets/images/ides/windows-vscode-demo-run-file.png" /></p>
+<p><img alt="windows-vscode-demo-run-file" src="../../assets/images/ides/windows-vscode-demo-run-file.jpg" /></p>
 <p>可以看到输入：</p>
-<p><img alt="windows-vscode-demo-run-file-out" src="../../assets/images/ides/windows-vscode-demo-run-file-out.png" /></p>
+<p><img alt="windows-vscode-demo-run-file-out" src="../../assets/images/ides/windows-vscode-demo-run-file-out.jpg" /></p>
 <p>更多关于在 vscode 中使用 Python 的内容，请参考 <a href="https://code.visualstudio.com/docs/python/python-tutorial">Getting Started with Python in VS Code</a> 。</p>
 <h2 id="_3">问题排查</h2>
-<h3 id="_4">因为在此系统上禁止运行脚本</h3>
-<p><img alt="windows-vscode-console-disable-psfile" src="../../assets/images/ides/windows-vscode-console-disable-psfile.png" /></p>
-<h4 id="_5">问题原因</h4>
+<h3 id="vscode">vscode 终端无法自动启用 虚拟环境</h3>
+<p><img alt="windows-vscode-console-disable-psfile" src="../../assets/images/ides/windows-vscode-console-disable-psfile.jpg" /></p>
+<h4 id="_4">问题原因</h4>
 <p>由于 poetry 为终端(默认是 Powershell) 启动虚拟环境时，使用的 ps1 脚本文件，而 Powershell 默认的执行策略
 是禁用脚本文件执行的。所以当 vscode 配置了虚拟环境后，启动终端，会无法执行脚本文件。</p>
-<h4 id="_6">解决方法</h4>
+<h4 id="_5">解决方法</h4>
 <p>参考 <a href="https:/go.microsoft.com/fwlink/?LinkID=135170">about_Execution_Policies</a> 的说明，并更改当前用户的 Powershell 执行策略：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
-</code></pre></div>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</span></code></pre></div>
+<p>然后关闭终端窗口后再次打开即可。</p>
 
 
 
